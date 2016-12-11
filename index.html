@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Чат</title>
+</head>
+<body>
+<form action="#" id="publish">
+	<input type="text" id="message">
+	<button>Send</button>
+</form>
+
+<div id="messages"></div>
+
+<script>
+	function ajax(options) {
+		var url = options.url,
+				method = options.method,
+				data = options.data,
+				debug = options.debug,
+				onload = options.onload,
+				callback = options.callback;
+
+		if (debug) {
+			callback('test');
+			return;
+		}
+		var xhr = new XMLHttpRequest();
+		xhr.open(method, url, true);
+		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+		if (onload) {
+			xhr.onload = function () {
+				onload.call(this);
+			}
+		}
+
+		xhr.send(data);
+	}
+
+	publish.addEventListener('submit', function (ev) {
+		ev.preventDefault();
+		ajax({
+			url: '/publish',
+			method: 'POST',
+			data: 'message=qqq'
+		});
+		this.elements.message = '';
+	});
+
+	subscribe();
+
+	function subscribe() {
+		ajax({
+			url: '/subscribe',
+			method: 'GET',
+			onload: function () {
+				var div = document.createElement('div');
+				div.textContent = '-' + this.responseText;
+				div.style.color = '#000';
+				messages.appendChild(div);
+				subscribe();
+			}
+		})
+	}
+</script>
+</body>
+</html>
