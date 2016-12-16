@@ -3,7 +3,9 @@ var http = require('http');
 var path = require('path');
 
 var app = express();
-app.set('port', 3000);
+var port = process.env.PORT || 3000;
+
+app.set('port', port);
 app.engine('ejs', require('ejs-locals'));
 console.log(__dirname)
 app.set('views', __dirname + '/template');
