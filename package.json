@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,11 @@
   "bugs": {
     "url": "https://github.com/horprogs/Nodejs_playground/issues"
   },
-  "homepage": "https://github.com/horprogs/Nodejs_playground#readme"
+  "homepage": "https://github.com/horprogs/Nodejs_playground#readme",
+  "dependencies": {
+    "ejs": "^2.5.5",
+    "ejs-locals": "^1.0.2",
+    "express": "^4.14.0",
+    "socket.io": "^1.7.2"
+  }
 }

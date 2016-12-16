@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Чат с Лехой</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+</head>
+<style>
+    .js-messages, .js-msg-form {
+        display: none;
+    }
+
+    .center-block {
+        float: none;
+    }
+    .container {
+        padding: 30px;
+    }
+    ul {
+        padding: 0;
+    }
+    li {
+        padding: 10px 15px;
+        list-style: none;
+        margin-bottom: 10px;
+    }
+</style>
+<body class="container col-md-3 center-block">
+<form action="#" class="js-login">
+    <div class="form-group">
+        <input type="text" placeholder="Введи имя" class="js-name form-control">
+    </div>
+    <button class="btn btn-success">Зайти</button>
+</form>
+
+<ul class="js-messages"></ul>
+
+<form action="#" class="js-msg-form">
+    <div class="form-group">
+        <input type="text" class="js-msg-input form-control" placeholder="Введи сообщение"/>
+    </div>
+    <button class="btn btn-primary">Отправить</button>
+</form>
+
+<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="/js/script.js"></script>
+</body>
+</html>
